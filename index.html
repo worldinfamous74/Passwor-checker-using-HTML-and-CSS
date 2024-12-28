@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Checker</title>
+</head>
+<style>
+    :root{
+        --bg: #1C1C1C;
+        --white: #fff;
+        --box-bg: #fff;
+        --box-border: #eaeaea;
+        --input-border: #650913;
+        --text: #505913;
+        --secondary: #F1F1F1;
+        --primary: #165E40;
+        --danger: #Ef4D61;
+        --warning: #FFC12C;
+        --success: #35D390;
+    }
+
+    body{
+        font-family: 'Roboto' , sans-serif;
+        font-size: 14px;
+        background: var(--bg);
+        display: grid;
+        height: 100vh;
+        place-items: center;
+        background-size: 4rem 4rem;
+    }
+
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    *::selection{
+        background: var(--primary);
+        color: var(--white);
+    }
+
+    .progress-bar-danger{
+        background: var(--danger);
+    }
+
+    .progress-bar-warning{
+        background: var(--warning);
+    }
+
+    .progress-bar-success{
+        background: var(--success);
+    }
+
+    .box{
+        background: var(--box-bg);
+        padding: 1.5rem;
+        max-width: fit-content;
+        width: 100%;
+        padding-top: 0.75rem;
+        border-radius: 1rem;
+        border: 1px solid var(--box-border);
+        box-shadow: rgba(0, 0, 0, 0.05)
+        1px 1px 2.6px;
+    }
+
+    .box h2{
+        margin: 0;
+        font-weight: 400;
+        font-size: 1.5rem;
+    }
+
+    .input__wrapper{
+        position: relative;
+        padding: 1rem 0 0;
+    }
+
+    .input__field{
+        border: 1px solid var(--input-border);
+        font-size: 1rem;
+        border-radius: 0.5rem;
+        color: var(--text);
+        padding: 0.5rem;
+        padding-right: 2em;
+        background: transparent;
+        outline: 1px solid transparent;
+        transition: border-color 0.2s;
+    }
+
+    .input__field::placeholder{
+        color: transparent;
+    }
+
+    .input__field:placeholder-shown_input__label{
+            font-size: 1rem;
+            cursor: text;
+            color: var(--text);
+            top: 1.5rem;
+    }
+
+    label,
+    .input__field:focus-.input__label{
+        position: absolute;
+        top: 0.375rem;
+        padding: 0 0.25rem;
+        background: var(--bg);
+        display: block;
+        font-size: 0.875rem;
+        left: 0.5rem;
+        color: var(--text);
+        transition: 0.3s;
+    }
+
+    .input__field:focus-.input__label{
+        color: var(--primary);
+    }
+
+    .input__field:focus{
+        border: 1px solid var(--primary);
+        outline: 1px solid var(--primary);
+    }
+
+    .input__icon{
+        position: absolute;
+        right: 0.625rem;
+        bottom: 0.625rem;
+        width: 1.75rem;
+        height: 1.75rem;
+        transform: translate(-50%, -50%);
+        transform-origin: center;
+        cursor: pointer;
+    }
+
+    .password-strenght{
+        display: flex;
+        gap: 0.5rem;
+        flex-direction: column;
+        margin-top: 0.25rem;
+    }
+
+    .password-strenght-items{
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        font-size: 0.75rem;
+    }
+
+    .password-strenght-items li{
+        display: flex;
+        gap: 0.25rem;
+        align-items: center;
+    }
+
+    .password-strenght-items li img{
+        width: 1.15rem;
+        height: 1.15rem;
+    }
+
+    .progress{
+        height: 3px !important;
+        width: 100%;
+        background: #f1f1f1;
+        border-radius: 0.25rem;
+    }
+</style>
+<body>
+    <div class="box">
+        <div class="input__wrapper">
+            <input
+                id="Password" type="password"
+                name="passwprd" placeholder="your password"
+                title="Minimum 6 Characters at keast 1 Alphabet, 1 Number and 1 Symbol"
+                pattern="*(?=,*[A-Za-z])(?=.*\d)(?=,*[\W_])(A-Za-z\d\W_){6,}s"
+                required class="input__field"
+            >
+            <label for="password" class="input__label">
+                Password
+            </label>
+            <!--An SVG Icon in the source of the image
+            till you get an SVG for it-->
+            <img 
+                alt="Eye Icon"
+                title="Eye Icon"
+                src=""
+                class="input__Icon"
+            >        
+        </div>
+
+        <div class="password-strenght">
+            <p><span>id="result"</span></p>
+
+            <div class="progress">
+                <div id="password-strenght"
+                    class="progress-bar" role="progressbar"
+                    aria-valuenow="46" aria-valuemin="0"
+                    aria-valuemax="100" style="width: 0%; height: 3px;"
+                >
+                </div>
+            </div>
+            <ul class="password-strenght-items">
+                <li class="low-upper-case">
+                    <!--An SVG Icon in the source of the image
+                    till you get an SVG for it-->
+                    <img src=""
+                        alt="Ticker"
+                        title="ticker"
+                        aria-hidden="true"
+                    >
+                </li>
+
+                <!--More Rules-->
+            </ul>
+        </div>
+    </div>
+    <script src="script.js">
+        const input = document.querySelector{
+            =.input__field")
+        }
+    </script>
+</body>
+</html>
